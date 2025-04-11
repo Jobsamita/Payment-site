@@ -1,0 +1,144 @@
+:root {
+  --background-color-1: #f7f7f3;
+  --background-color-2: rgba(51, 51, 51, 0.8);
+  --color-1: white;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --color-success: green;
+  --color-success-dark: darkgreen;
+  --border-color: #ddd;
+
+  /* Added custom theme variables */
+  --primary-font: 'Arial', sans-serif;
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: var(--primary-font);
+  margin: 0;
+  padding: 0;
+  background: url("assets/bg.jpg") no-repeat center center fixed; 
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  background: var(--background-color-2);
+  color: var(--color-1);
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  border-radius: 0 0 5px 5px;
+  position: relative;
+}
+
+/* Decorative pseudo-element for header */
+header::before {
+  content: "🏠";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+}
+
+/* Container with transitions and responsive layout using Flexbox */
+.container {
+  background: var(--color-1);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform var(--transition-speed);
+}
+
+.container:hover {
+  transform: scale(1.01);
+}
+
+/* Form fields */
+#payment-form {
+  padding: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+input,
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-speed);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-success);
+  box-shadow: 0 0 5px var(--color-success);
+}
+
+button {
+  background: var(--color-success);
+  color: var(--color-1);
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--color-success-dark);
+  transform: scale(1.03);
+}
+
+/* Payment History section using Grid */
+.payment-history {
+  margin-top: 30px;
+  width: 90%;
+  max-width: 800px;
+  display: grid;
+  gap: 20px;
+}
+
+.payment-history h2::after {
+  content: "💰";
+  margin-left: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-1);
+  box-shadow: 0 0 10px var(--box-shadow-color);
+}
+
+th,
+td {
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: #333;
+  color: var(--color-1);
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+  .container, .payment-history {
+    width: 95%;
+  }
+
+  header::before {
+    display: none;
+  }
+}
